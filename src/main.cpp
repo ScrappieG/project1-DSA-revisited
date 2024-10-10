@@ -9,15 +9,7 @@ int main(){
     BalancedTree tree;
     int num = 0;
     string line = "";
-    while(num <= 0){
-        getline(cin, line);
-        try{
-            num = stoi(line);
-        }
-        catch(...){
-            continue;
-        }
-    }
+    
     getline(cin, line);
 
     for(int i = 0; i < num; i++){
