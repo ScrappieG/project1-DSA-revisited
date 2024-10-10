@@ -6,6 +6,24 @@
 
 vector<string> parseInput(string line){ // break up user input into functions and arguments
     vector<string> output;
+    bool inQuotes = false;
+    string temp = "";
+    for(int i = 0; i < line.length(); i++){
+        if (line[i] == 32 && !(inQuotes)){
+            temp += line[i];
+        }
+        else if (inQuotes){
+            if (line[i] == 34){
+                output.push_back(temp);
+            }
+            else{
+                temp += line[i];
+            }
+        }
+        else if (line[i] == 34){
+            temp += line[i];
+        }
+    }
     while(true){
         if(line.find(' ') == string::npos){
             break;
