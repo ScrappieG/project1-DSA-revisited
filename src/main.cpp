@@ -9,8 +9,14 @@ int main(){
     BalancedTree tree;
     int num = 0;
     string line = "";
-    
     getline(cin, line);
+    
+    try{
+        num =stoi(line);
+    }
+    catch(...){
+        
+    }
 
     for(int i = 0; i < num; i++){
         line = "";
