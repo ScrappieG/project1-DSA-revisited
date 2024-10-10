@@ -301,7 +301,7 @@ bool BalancedTree::removeInorderN(int n) {
     vector<int> ids;
     Inorder(this->getRoot(), ids); //using a helper function proved to be far easier
     if((n-1) < int(ids.size())) {
-        return removeID(ids[n - 1]);//searches tree for the nth id
+        return removeID(ids[n]);//searches tree for the nth id
     }
 
     return false;

@@ -1,0 +1,20 @@
+19
+insert "A" 16000000
+insert "B" 18000000
+insert "C" 19000000
+insert "D" 23000000
+insert "E" 14000000
+insert "F" 12000000
+insert "G" 17000000
+insert "H" 25000000
+insert "I" 21000000
+insert "J" 11000000
+insert "K" 15000000
+insert "L" 24000000
+insert "M" 22000000
+insert "N" 13000000
+insert "O" 20000000
+removeInorder 0
+insert "P" 26000000
+removeInorder 14
+printPreorder
