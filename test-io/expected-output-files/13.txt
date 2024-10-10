@@ -1,0 +1,8 @@
+7
+insert "John Doe" 11111111
+insert "Jane Doe" 11111111
+insert "John Doe" 22222222
+insert "@lbert" 33333333
+insert "Albert" 4
+insert "Albert" 00000004
+insert "John Doe is an honorable man John Doe is an honorable man " 22222223
