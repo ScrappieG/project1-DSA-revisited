@@ -9,35 +9,34 @@ vector<string> parseInput(string line){ // break up user input into functions an
     bool inQuotes = false;
     string temp = "";
     for(int i = 0; i < line.length(); i++){
-        if (line[i] == 32 && !(inQuotes)){
-            temp += line[i];
-        }
-        else if (inQuotes){
-            if (line[i] == 34){
+        if (line[i] == 32 && !(inQuotes)){ //space and not in quotes
+            if (temp.length() != 0){
                 output.push_back(temp);
+                temp = "";
+            }
+            
+        }
+        else if (line[i] == 34 && !(inQuotes)){// if the quotes begin
+            temp += line[i];
+            inQuotes = true;
+        }
+        else if (inQuotes){ //if the quotes end
+            if (line[i] == 34){
+                temp += line[i];
+                output.push_back(temp);
+                temp = "";
+                inQuotes = false;
             }
             else{
                 temp += line[i];
             }
         }
-        else if (line[i] == 34){
+        else{
             temp += line[i];
         }
     }
-    while(true){
-        if(line.find(' ') == string::npos){
-            break;
-        }
-        int space_index = line.find(' ');
-
-        string temp = line.substr(0, space_index);
-        line = line.substr(space_index + 1);
-
-        output.push_back(temp); // storing each func or args in vector
-    }
-
-    if (line.length() > 0){ // catch any args left
-        output.push_back(line);
+    if (temp.length() != 0){
+        output.push_back(temp);
     }
     return output;
 
@@ -50,7 +49,7 @@ bool validateName(string name){// validates names are alphabetical, and have ""
     if (name[0] =='\"' && name[name.length() - 1] == '\"'){
         name = name.substr(1, name.length() - 2);// removing ""
         for (char letter : name){
-            if (!isalpha(letter)){ // using the function from C to check if each char is alpha
+            if (!isalpha(letter) && letter != 32){ // using the function from C to check if each char is alpha
                 return false;
             }
         }
